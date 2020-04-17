@@ -1,4 +1,6 @@
 <script>
+import DeInput from "./../../default-input/index";
+console.log(DeInput)
 export default {
   name: "quick-input",
   props: {

@@ -111,14 +111,14 @@
   </div>
 </template>
 <script>
-import emitter from "element-ui/src/mixins/emitter";
-import Migrating from "element-ui/src/mixins/migrating";
+import emitter from "./mixins/emitter";
+import Migrating from "./mixins/migrating";
 import calcTextareaHeight from "./calcTextareaHeight";
-import merge from "element-ui/src/utils/merge";
-import { isKorean } from "element-ui/src/utils/shared";
+import merge from "./utils/merge";
+import { isKorean } from "./utils/shared";
 export default {
-  name: "ElInput",
-  componentName: "ElInput",
+  name: "DeInput",
+  componentName: "DeInput",
   mixins: [emitter, Migrating],
   inheritAttrs: false,
   inject: {
