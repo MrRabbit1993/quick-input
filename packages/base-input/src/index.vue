@@ -117,8 +117,8 @@ import calcTextareaHeight from "./calcTextareaHeight";
 import merge from "./utils/merge";
 import { isKorean } from "./utils/shared";
 export default {
-  name: "DeInput",
-  componentName: "DeInput",
+  name: "base-input",
+  componentName: "base-input",
   mixins: [emitter, Migrating],
   inheritAttrs: false,
   inject: {
@@ -436,3 +436,6 @@ export default {
   }
 };
 </script>
+<style lang="sass">
+@import "./theme-chalk/src/index.scss";
+</style>

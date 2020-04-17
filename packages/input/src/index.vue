@@ -1,8 +1,9 @@
 <script>
-import DeInput from "./../../default-input/index";
-console.log(DeInput)
+import BaseInput from "./../../base-input/index";
+console.log("BaseInput",BaseInput)
 export default {
   name: "quick-input",
+  components:{BaseInput},
   props: {
     value: { type: [Number, String, Object] },
     text: String,
@@ -49,13 +50,26 @@ export default {
         ref="container"
         onMouseover={() => (this.focus = true)}
         onMouseout={() => (this.focus = false)}
-      >demo</div>
+      >demo
+      <base-input
+        on-icon-click={this.iconClick}
+        disabled={this.disabled}
+        placeholder={this.placeholder || '请输入'}
+        ref="text"
+        readonly={this.readonly}
+        v-model={this.displayText}
+        icon={this.icon}
+        onFocus={this.selectOnFocus}
+    />
+      </div>
     );
   }
 };
+// <style lang="scss" scoped>
+// .qib-box-container {
+//   display: inline-block;
+// }
+// </style>
 </script>
-<style lang="less" scoped>
-.qib-box-container {
-  display: inline-block;
-}
-</style>
+
+
