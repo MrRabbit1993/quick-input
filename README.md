@@ -32,9 +32,8 @@ Vue.use(QuickInput);
 | scope|  范围上下文值，会在 input 事件的第二个参数, change 事件的第三个参数中接收到此值 |  | |
 
 ## Methods
-| 方法名称   |      说明      | code|
-|----------|-------------|---|
-|change|控件的值已变化，函数原型 function(val: string,  option: object, scope: any)|@val 为变化后的值 @option  触发该值的数据项 @scope   控件属性 scope 指定的值，用于进行参数回传等处理
-|
+| 方法名称   |      说明      | 参数说|
+|----------|-------------|------------------|
+| change | 控件的值已变化，函数原型 function(val: string,  option: object, scope: any) | @val 为变化后的值 @option  触发该值的数据项 @scope   控件属性 scope 指定的值，用于进行参数回传等处理 |
 
 
