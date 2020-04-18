@@ -16,7 +16,7 @@ Vue.use(QuickInput);
 ##
 
 | 属性名称   |      说明      | 类型 | 默认值|
-|----------|:-------------:|------:|
+|----------|:-------------:|------:|-------:|
 | value |  隐藏的值 | Number, String, Object | |
 | text |  显示文本内容 |  String| |
 | custom-options |  自定义选项清单提供，可为对象数组或function回调,回调函数原形function(filter: string,  complete: function (options));
