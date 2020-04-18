@@ -19,8 +19,8 @@ Vue.use(QuickInput);
 |----------|:-------------:|------:|-------:|
 | value |  隐藏的值 | Number, String, Object | |
 | text |  显示文本内容 |  String| |
-| custom-options |  自定义选项清单提供，可为对象数组或function回调,回调函数原形 |  Function| |
-| url |  用于远程请求获取options数据的地址，控件会在输入变化后，向该地址post以下数据 {filter: "过滤串"} | String | function(filter: string,  complete: function (options)); @filter   为过滤字符串 @complete 为自定义options参数回传函数|
+| custom-options |  自定义选项清单提供，可为对象数组或function回调,回调函数原形function(filter: string,  complete: function (options)); @filter   为过滤字符串 @complete 为自定义options参数回传函数 |  Function| |
+| url |  用于远程请求获取options数据的地址，控件会在输入变化后，向该地址post以下数据 {filter: "过滤串"} | String | |
 | text-url |  若指定该值，控件会在加载时请求此地址并读取 data 为text属性值并显示 | String | |
 | placeholder |  占位提示内容 | String | 请输入|
 | readonly |  只读 | Boolean | false|
