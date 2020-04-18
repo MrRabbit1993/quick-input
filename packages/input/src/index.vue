@@ -58,7 +58,7 @@ export default {
     optionLabel: { type: String, default: "label" },
     suggestionDelay: { type: Number, default: 400 },
     clearable: { type: [Boolean, String], default: true },
-    Authorization:{type:String,default:""},//jwt口令
+    Authorization: { type: String, default: "" }, //jwt口令
     valueDetectOnChanged: { type: Boolean, default: false } // 是否在changed事件时检测 value == this.value
   },
   data() {
@@ -178,7 +178,7 @@ export default {
       this.options = [];
       this.showSuggestions = true;
 
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         let options = this.$refs.options;
         let bounding = this.$refs.container.getBoundingClientRect();
 
@@ -190,15 +190,15 @@ export default {
       if (this.url) {
         var args = {};
         args[this.filterName] = this.displayText;
-        $request(this.url, args,this.Authorization)
+        $request(this.url, args, this.Authorization)
           .then(response => {
             this.loading = false;
-            const {success,errorCode,data} = response;
-            if (errorCode===0) {
+            const { success, errorCode, data } = response;
+            if (errorCode === 0) {
               this.options = data;
             }
           })
-          .catch(_ => this.loading = false);
+          .catch(_ => (this.loading = false));
       } else if (
         typeof this.customOptions == "object" &&
         this.customOptions.construcotr == Array
@@ -296,9 +296,9 @@ export default {
     },
     textUrl(url, oldUrl) {
       this.loading = true;
-      $request(url)
+      $request(url,{},this.Authorization)
         .then(response => {
-          const { data, errorCode,success } = response;
+          const { data, errorCode, success } = response;
           this.loading = false;
           if (errorCode === 0) {
             if (typeof data.data == "string") {
