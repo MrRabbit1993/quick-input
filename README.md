@@ -11,6 +11,7 @@ import Vue from 'vue'
 import QuickInput from 'quick-input'
 
 Vue.use(QuickInput);
+```
 
 ##
 
