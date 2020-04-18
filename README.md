@@ -16,7 +16,7 @@ Vue.use(QuickInput);
 ## 属性
 
 | 属性名称   |      说明      | 类型 | 默认值|
-|----------|:-------------:|------:|-------:|
+|:----------|:-------------|:------|:-------|
 | value |  隐藏的值 | Number, String, Object | |
 | text |  显示文本内容 |  String| |
 | custom-options |  自定义选项清单提供，可为对象数组或function回调,回调函数原形function(filter: string,  complete: function (options)); @filter   为过滤字符串 @complete 为自定义options参数回传函数 |  Function| |
@@ -32,12 +32,11 @@ Vue.use(QuickInput);
 | scope|  范围上下文值，会在 input 事件的第二个参数, change 事件的第三个参数中接收到此值 |  | |
 
 ## Methods
-```js
-change   控件的值已变化，函数原型：  
-function(val: string,  option: object, scope: any);
-@val     为变化后的值
+| 方法名称   |      说明      | code|
+|----------|-------------|---|
+|change|控件的值已变化，函数原型|@val     为变化后的值
 @option  触发该值的数据项
 @scope   控件属性 scope 指定的值，用于进行参数回传等处理
-```
+function(val: string,  option: object, scope: any)|
 
 
