@@ -12,8 +12,11 @@ export default {
   render(h) {
     return (
       <div>
-        <quick-input value={this.str1} onInput={(value)=>this.str1 = value } onChage={this.navigate}
-          custom-options={this.filterModules}/>
+        {/* <quick-input value={this.str1} onInput={(value)=>this.str1 = value } onChage={this.navigate}
+        //   custom-options={this.filterModules}/>*/}
+        <quick-input  placeholder="请输入内容检索" url='/api/v1/npm-store/getJson'
+            Authorization="base64 code sha256"
+            option-value="value" option-label="label" filter-name="inputQuery" value={this.str1} />
       </div>
     );
   },

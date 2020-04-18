@@ -37,6 +37,7 @@
 </template>
 <script>
 import BaseInput from "./../../base-input/index";
+import $request from "./../../utils/request";
 export default {
   name: "quick-input",
   components: { BaseInput },
@@ -57,6 +58,7 @@ export default {
     optionLabel: { type: String, default: "label" },
     suggestionDelay: { type: Number, default: 400 },
     clearable: { type: [Boolean, String], default: true },
+    Authorization:{type:String,default:""},//jwt口令
     valueDetectOnChanged: { type: Boolean, default: false } // 是否在changed事件时检测 value == this.value
   },
   data() {
@@ -73,7 +75,6 @@ export default {
     };
   },
   created() {
-    console.log(this);
     if (!this.customOptions && !this.url) {
       throw new Error("请指定 customOptions 或 url 属性.");
     }
@@ -173,16 +174,15 @@ export default {
       }
     },
     loadSuggestions() {
-      var me = this;
-      me.loading = true;
-      me.options = [];
-      me.showSuggestions = true;
+      this.loading = true;
+      this.options = [];
+      this.showSuggestions = true;
 
-      me.$nextTick(function() {
-        var options = me.$refs.options;
-        var bounding = me.$refs.container.getBoundingClientRect();
+      this.$nextTick(()=>{
+        let options = this.$refs.options;
+        let bounding = this.$refs.container.getBoundingClientRect();
 
-        options.style.width = me.$refs.container.clientWidth + "px";
+        options.style.width = this.$refs.container.clientWidth + "px";
         options.style.left = bounding.left + "px";
         options.style.top = bounding.height + bounding.top + "px";
         document.body.appendChild(options);
@@ -190,29 +190,29 @@ export default {
       if (this.url) {
         var args = {};
         args[this.filterName] = this.displayText;
-        this.axios
-          .post(this.url, args)
-          .then(options => {
-            me.loading = false;
-            if (options.data.success) {
-              me.options = options.data.data;
+        $request(this.url, args,this.Authorization)
+          .then(response => {
+            this.loading = false;
+            const {success,errorCode,data} = response;
+            if (errorCode===0) {
+              this.options = data;
             }
           })
-          .catch(_ => (me.loading = false));
+          .catch(_ => this.loading = false);
       } else if (
-        typeof me.customOptions == "object" &&
-        me.customOptions.construcotr == Array
+        typeof this.customOptions == "object" &&
+        this.customOptions.construcotr == Array
       ) {
-        me.options = me.customOptions;
-        me.loading = false;
-      } else if (typeof me.customOptions == "function") {
-        me.customOptions(
-          me.displayText,
+        this.options = this.customOptions;
+        this.loading = false;
+      } else if (typeof this.customOptions == "function") {
+        this.customOptions(
+          this.displayText,
           function(options) {
-            me.loading = false;
-            if (options && options.length) me.options = options;
+            this.loading = false;
+            if (options && options.length) this.options = options;
           },
-          me.scope
+          this.scope
         );
       }
     },
@@ -296,12 +296,11 @@ export default {
     },
     textUrl(url, oldUrl) {
       this.loading = true;
-      this.axios
-        .post(url)
+      $request(url)
         .then(response => {
-          const { data, errorCode } = response;
+          const { data, errorCode,success } = response;
           this.loading = false;
-          if (errorCode == 0) {
+          if (errorCode === 0) {
             if (typeof data.data == "string") {
               this.displayText = data.data;
             } else if (typeof data.data == "object") {
