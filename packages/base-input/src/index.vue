@@ -424,6 +424,7 @@ export default {
     }
   },
   created() {
+    console.log("值",this.value)
     this.$on("inputSelect", this.select);
   },
   mounted() {
@@ -438,4 +439,5 @@ export default {
 </script>
 <style lang="sass">
 @import "./theme-chalk/src/index.scss";
+@import "./theme-chalk/src/select-dropdown.scss";
 </style>

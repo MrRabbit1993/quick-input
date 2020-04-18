@@ -1,6 +1,7 @@
 import QuickInput from '../packages/input';
+import BaseInput from "../packages/base-input"
 const Components = [
-  QuickInput
+  QuickInput,BaseInput
 ]
 const install = Vue => {
   if (install.installed) return;
@@ -14,5 +15,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 export default {
   install,
-  QuickInput
+  QuickInput,
+  BaseInput
 }

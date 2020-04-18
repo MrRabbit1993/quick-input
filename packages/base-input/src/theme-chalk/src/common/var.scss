@@ -193,3 +193,77 @@ $--input-small-height: 32px !default;
 $--input-mini-font-size: 12px !default;
 /// height||Other|4
 $--input-mini-height: 28px !default;
+
+/* Select
+-------------------------- */
+$--select-border-color-hover: $--border-color-hover !default;
+$--select-disabled-border: $--disabled-border-base !default;
+/// fontSize||Font|1
+$--select-font-size: $--font-size-base !default;
+$--select-close-hover-color: $--color-text-secondary !default;
+
+$--select-input-color: $--color-text-placeholder !default;
+$--select-multiple-input-color: #666 !default;
+/// color||Color|0
+$--select-input-focus-border-color: $--color-primary !default;
+/// fontSize||Font|1
+$--select-input-font-size: 14px !default;
+
+$--select-option-color: $--color-text-regular !default;
+$--select-option-disabled-color: $--color-text-placeholder !default;
+$--select-option-disabled-background: $--color-white !default;
+/// height||Other|4
+$--select-option-height: 34px !default;
+$--select-option-hover-background: $--background-color-base !default;
+/// color||Color|0
+$--select-option-selected-font-color: $--color-primary !default;
+$--select-option-selected-hover: $--background-color-base !default;
+
+$--select-group-color: $--color-info !default;
+$--select-group-height: 30px !default;
+$--select-group-font-size: 12px !default;
+
+$--select-dropdown-background: $--color-white !default;
+$--select-dropdown-shadow: $--box-shadow-light !default;
+$--select-dropdown-empty-color: #999 !default;
+/// height||Other|4
+$--select-dropdown-max-height: 274px !default;
+$--select-dropdown-padding: 6px 0 !default;
+$--select-dropdown-empty-padding: 10px 0 !default;
+$--select-dropdown-border: solid 1px $--border-color-light !default;
+/* Popup
+-------------------------- */
+/// color||Color|0
+$--popup-modal-background-color: $--color-black !default;
+/// opacity||Other|1
+$--popup-modal-opacity: 0.5 !default;
+
+/* Popover
+-------------------------- */
+/// color||Color|0
+$--popover-background-color: $--color-white !default;
+/// fontSize||Font|1
+$--popover-font-size: $--font-size-base !default;
+/// color||Color|0
+$--popover-border-color: $--border-color-lighter !default;
+$--popover-arrow-size: 6px !default;
+/// padding||Spacing|3
+$--popover-padding: 12px !default;
+$--popover-padding-large: 18px 20px !default;
+/// fontSize||Font|1
+$--popover-title-font-size: 16px !default;
+/// color||Color|0
+$--popover-title-font-color: $--color-text-primary !default;
+/* Tooltip
+-------------------------- */
+/// color|1|Color|0
+$--tooltip-fill: $--color-text-primary !default;
+/// color|1|Color|0
+$--tooltip-color: $--color-white !default;
+/// fontSize||Font|1
+$--tooltip-font-size: 12px !default;
+/// color||Color|0
+$--tooltip-border-color: $--color-text-primary !default;
+$--tooltip-arrow-size: 6px !default;
+/// padding||Spacing|3
+$--tooltip-padding: 10px !default;
